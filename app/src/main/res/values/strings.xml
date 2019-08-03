@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">StoryLogQuest</string>
+    <string name="ed_title">Add your Title</string>
+    <string name="ed_tag">Select Your Tag</string>
+    <string name="btn_add_img">Add Image</string>
+    <string name="btn_delete_img">Delete Image</string>
+    <string name="error_no_title">this field is require </string>
+    <string name="text_created">Topic Created</string>
+    <string name="text_updated">Topic Updated</string>
+    <string name="text_deleted">Topic Deleted</string>
+
+
+    <string name="btn_filter">Filter</string>
+
+    <string name="btn_create">Create Title</string>
+    <string name="btn_update">Update Title</string>
+
+    <string name="title_add_topic">Add Topic</string>
+    <string name="Edit_add_topic">Edit Topic</string>
+
+</resources>
