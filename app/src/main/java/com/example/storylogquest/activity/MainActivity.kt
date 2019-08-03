@@ -116,16 +116,34 @@ class MainActivity : AppCompatActivity(),TopicAdapter.OnItemClick {
         }
     }
 
-    override fun onItemClick(topic: TopicModel) {
-        val jsonString = Gson().toJson(topic)
-        val intent = Intent(this,NewTopicActivity::class.java)
-        intent.action = Constant.ACTION_EDIT
-        intent.putExtra(Constant.TOPIC_STRING,jsonString)
-        startActivityForResult(intent,Constant.REQUEST_EDIT)
-    }
-
-    override fun onItemDeleted(id: Int) {
+    private fun deleteItem(id: Int){
         viewModel.deleteTopic(id)
         Toast.makeText(MainApplication.applicationContext(),resources.getString(R.string.text_deleted),Toast.LENGTH_SHORT).show()
     }
+
+    override fun onItemClick(topic: TopicModel) {
+        val tags = arrayOf("Edit", "Delete")
+        val builder = AlertDialog.Builder(this)
+        builder.setItems(tags) { dialog, which ->
+            val item = tags[which]
+            if(item == "Edit"){
+                val jsonString = Gson().toJson(topic)
+                val intent = Intent(this,NewTopicActivity::class.java)
+                intent.action = Constant.ACTION_EDIT
+                intent.putExtra(Constant.TOPIC_STRING,jsonString)
+                startActivityForResult(intent,Constant.REQUEST_EDIT)
+            }else{
+                deleteItem(topic.id)
+            }
+            dialog.dismiss()
+        }
+        builder.show()
+
+    }
+
+    override fun onItemDeleted(id: Int) {
+      deleteItem(id)
+    }
+
+
 }

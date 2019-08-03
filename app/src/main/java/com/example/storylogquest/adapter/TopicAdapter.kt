@@ -68,9 +68,10 @@ class TopicAdapter(private val mContext: Context, private val listTopic:ArrayLis
             vh.image.visibility = View.GONE
         }
 
-        vh.rootLayout.setOnClickListener {
+        vh.rootLayout.setOnLongClickListener {
             if(::mListener.isInitialized)
                 mListener.onItemClick(item)
+            true
         }
 
     }

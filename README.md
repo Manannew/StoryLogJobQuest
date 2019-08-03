@@ -1,4 +1,4 @@
-# StoryLogJobQuestT
+# StoryLogJobQuest
  This project is the part of Storylog's Quest
  
  This example application contain 
